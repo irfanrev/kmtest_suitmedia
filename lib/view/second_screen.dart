@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kmtest_suitemedia/view/third_screen.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({Key? key}) : super(key: key);
@@ -41,23 +42,27 @@ class SecondScreen extends StatelessWidget {
     }
 
     Widget btnChooseUser() {
-      return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 32),
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          width: double.infinity,
-          height: 45,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Color(0xff2B637B),
-          ),
-          child: Center(
-            child: Text(
-              'Choose a User',
-              style: TextStyle(
-                color: Colors.white,
-              ),
+      return InkWell(
+        onTap: () => Get.to( ThirdScreen()),
+        enableFeedback: true,
+        child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 32),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            width: double.infinity,
+            height: 45,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: Color(0xff2B637B),
             ),
-          ));
+            child: Center(
+              child: Text(
+                'Choose a User',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            )),
+      );
     }
 
     return Scaffold(
