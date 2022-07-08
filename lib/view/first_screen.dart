@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/get.dart';
+import 'package:kmtest_suitemedia/controller/palindrome_controller.dart';
 import 'package:kmtest_suitemedia/view/second_screen.dart';
 
 class FirstScreen extends StatelessWidget {
-  const FirstScreen({Key? key}) : super(key: key);
+  FirstScreen({Key? key}) : super(key: key);
+
+  final PalindromeController c = Get.put(PalindromeController());
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +57,7 @@ class FirstScreen extends StatelessWidget {
                     height: 22,
                   ),
                   Container(
+                    
                     margin: EdgeInsets.symmetric(horizontal: 32),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 15, vertical: 10),
@@ -64,6 +68,7 @@ class FirstScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     child: TextFormField(
+                      controller: c.palind,
                       decoration: const InputDecoration.collapsed(
                         hintText: 'Palindrome',
                       ),
@@ -74,7 +79,7 @@ class FirstScreen extends StatelessWidget {
                   ),
                   InkWell(
                     enableFeedback: true,
-                    onTap: () {},
+                    onTap: () => c.checkPalindrome(),
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 32),
                       padding: const EdgeInsets.symmetric(
