@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
+import 'package:get/get.dart';
+import 'package:kmtest_suitemedia/view/second_screen.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -94,7 +97,7 @@ class FirstScreen extends StatelessWidget {
                   ),
                   InkWell(
                     enableFeedback: true,
-                    onTap: () {},
+                    onTap: () => Get.to(const SecondScreen()),
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 32),
                       padding: const EdgeInsets.symmetric(
