@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kmtest_suitemedia/controller/user_controller.dart';
 import 'package:kmtest_suitemedia/view/third_screen.dart';
 
 class SecondScreen extends StatelessWidget {
-  const SecondScreen({Key? key}) : super(key: key);
+   SecondScreen({Key? key}) : super(key: key);
+
+  final UserController c = Get.put(UserController());
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class SecondScreen extends StatelessWidget {
           children: [
             Text('Welcome'),
             Text(
-              'John Doe',
+              c.nameC.text,
               style: GoogleFonts.poppins(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -31,12 +34,14 @@ class SecondScreen extends StatelessWidget {
     Widget selectedUsername() {
       return Expanded(
           child: Center(
-        child: Text(
-          'Selected User Name',
+        child: Obx(
+          () => Text(
+          c.name.value,
           style: GoogleFonts.poppins(
             fontSize: 24,
             fontWeight: FontWeight.w600,
           ),
+        ),
         ),
       ));
     }

@@ -12,7 +12,7 @@ class PalindromeController extends GetxController {
     for (int j = stringToReverse.length - 1; j >= 0; j--) {
       reversedString += stringToReverse[j];
     }
-    
+
     if (beforeReverse == reversedString) {
       Get.defaultDialog(
         title: 'Result',
@@ -22,10 +22,8 @@ class PalindromeController extends GetxController {
             fontSize: 24,
             fontWeight: FontWeight.w500,
           ),
-
         ),
         onConfirm: () => Get.back(),
-        
       );
       palind.text = '';
     } else {
@@ -37,10 +35,8 @@ class PalindromeController extends GetxController {
             fontSize: 24,
             fontWeight: FontWeight.w500,
           ),
-
         ),
         onConfirm: () => Get.back(),
-        
       );
       palind.text = '';
     }

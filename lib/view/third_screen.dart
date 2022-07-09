@@ -40,17 +40,23 @@ class ThirdScreen extends StatelessWidget {
                       final user = snapshot.data![index];
                       return Column(
                         children: [
-                          ListTile(
-                            leading: CircleAvatar(
-                              backgroundImage: NetworkImage(user['avatar']),
-                            ),
-                            title: Text(
-                              user['first_name'] + ' ' + user['last_name'],
-                              style: GoogleFonts.poppins(
-                                fontSize: 16,
+                          InkWell(
+                            onTap: () {
+                              c.onSelectedUser(user['first_name'], user['last_name']); 
+                              Get.back();
+                            },
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage: NetworkImage(user['avatar']),
                               ),
+                              title: Text(
+                                user['first_name'] + ' ' + user['last_name'],
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              subtitle: Text(user['email']),
                             ),
-                            subtitle: Text(user['email']),
                           ),
                           const Divider(),
                         ],
